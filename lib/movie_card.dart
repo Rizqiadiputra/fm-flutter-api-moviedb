@@ -19,23 +19,30 @@ class MovieCard extends StatelessWidget{
             ),
           );
         },
-        child: Container(
-            decoration: const BoxDecoration(color: Colors.white),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  movies.title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-              ],
+      // Menampilkan judul film dan gambar poster dalam kartu.
+      child: Card(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.network(
+              'https://image.tmdb.org/t/p/w500${movies.posterPath}',
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: 180,
             ),
-          ),
-        );
-    }
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                movies.title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
