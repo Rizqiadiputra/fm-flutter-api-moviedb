@@ -71,19 +71,38 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                Expanded(
-                    child: GridView.builder(
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 0.7,
-                        ),
-                        // itemCount: snapshot.data!.length,
-                        itemCount: movies.length,
-                        itemBuilder: (context, index) {
-                          return MovieCard(movies: snapshot.data![index]);
-                        },
-                    ),
+
+                SizedBox(
+                  height: 300,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: movies.length,
+                      itemBuilder: (context, index){
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: 150,
+                            child: MovieCard(movies: movies[index]),
+                          ),
+                        );
+                      },
+                  ),
                 ),
+
+                //Grid View
+                // Expanded(
+                //     child: GridView.builder(
+                //         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                //           crossAxisCount: 2,
+                //           childAspectRatio: 0.7,
+                //         ),
+                //         // itemCount: snapshot.data!.length,
+                //         itemCount: movies.length,
+                //         itemBuilder: (context, index) {
+                //           return MovieCard(movies: snapshot.data![index]);
+                //         },
+                //     ),
+                // ),
               ],
             );
             // return
