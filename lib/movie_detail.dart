@@ -40,6 +40,99 @@ class DetailMovie extends StatelessWidget {
                       ),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Overview: ${movies.overview}',
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Expanded(child:
+                      Container(
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          'Release Date: ${movies.releaseDate}',
+                          style: const TextStyle(
+                            fontSize: 14,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      ),
+
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        child: Row(
+                          children: [
+                            const Text(
+                              'Rating:',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            const SizedBox(width: 4),
+                            Icon(
+                              Icons.star,
+                              color: Colors.yellow[700],
+                            ),
+                            const SizedBox(width: 4),
+                            Text(
+                              '${movies.rating} / 10 ',
+                              style: const TextStyle(
+                                fontSize: 14,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                      ),
+
+                    ],
+                  )
+                ),
+
+                  // const SizedBox(height: 20),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  //   child: Text(
+                  //     'Related Movies',
+                  //     style: TextStyle(
+                  //       fontSize: 20,
+                  //       fontWeight: FontWeight.bold,
+                  //     ),
+                  //   ),
+                  // ),
+                  // const SizedBox(height: 10),
+                  // Expanded(
+                  //     child: ListView.builder(
+                  //         itemCount: 10,
+                  //         itemBuilder: (context, index){
+                  //           return ListTile(
+                  //             title: Text('Item ${index + 1}'),
+                  //             onTap: () {
+                  //               // Tambahkan navigasi atau aksi lainnya
+                  //             },
+                  //           );
+                  //         },
+                  //     ),
+                  // ),
               ],
             ),
           ),

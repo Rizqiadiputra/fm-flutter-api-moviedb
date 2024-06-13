@@ -56,16 +56,37 @@ class _HomeState extends State<Home> {
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Center(child: Text('No Movies Available'));
           } else {
-            return GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.7,
+            // Ambil hanya 4 film pertama
+            var movies = snapshot.data!.take(4).toList();
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Trending Movies Today',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-                itemCount: snapshot.data!.length,
-                itemBuilder: (context, index) {
-                  return MovieCard(movies: snapshot.data![index]);
-                },
+                Expanded(
+                    child: GridView.builder(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 0.7,
+                        ),
+                        // itemCount: snapshot.data!.length,
+                        itemCount: movies.length,
+                        itemBuilder: (context, index) {
+                          return MovieCard(movies: snapshot.data![index]);
+                        },
+                    ),
+                ),
+              ],
             );
+            // return
           }
         },
       ),
